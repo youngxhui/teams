@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.multipart.maxSize" value="52428800"/>
+    <constant name="struts.custom.i18n.resources" value="strings"/>
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!--自定义拦截器-->
+        <interceptors>
+            <interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
+        </interceptors>
+
+        <global-results>
+            <result name="login" type="chain">loginAfter</result>
+        </global-results>
+
+        <action name="userRegister" method="register" class="action.UserAction">
+            <result name="input">register.jsp</result>
+            <result name="error">register.jsp</result>
+        </action>
+
+        <action name="userLogin" method="login" class="action.UserAction">
+            <result name="success">index.jsp</result>
+            <result name="input">login.jsp</result>
+            <result name="error">login.jsp</result>
+        </action>
+
+        <action name="clear" method="clear" class="action.UserAction">
+            <result name="success">index.jsp</result>
+        </action>
+
+        <!--file upload-->
+        <action name="uploadfiles" class="action.FileAction" method="uploadFile">
+            <result name="input">uploadFile.jsp</result>
+            <result name="success" type="plainText">
+                <param name="location">json/return.json</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="getfiles" class="action.FileAction" method="showAllFiles">
+            <result name="success">document.jsp</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="getOwnerFiles" class="action.FileAction" method="getOwnerFiles">
+            <result name="success">userDocument.jsp</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="download" class="action.DownLoadFile">
+            <result type="stream">
+                <param name="inputName">targetFile</param>
+                <param name="contentType">${contentType}</param>
+                <param name="contentDisposition">attachment;filename=${downFileName}</param>
+            </result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="deletefile" method="deleteFile" class="action.FileAction">
+            <result name="success" type="chain">getfiles</result>
+            <result name="error">getfiles</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <!--test-->
+        <action name="downloadt" class="action.DownloadAction">
+            <result name="success" type="stream">
+                <!-- 下载文件输出流定义 -->
+                <param name="inputName">targetFile</param>　　　　　　　　　　　　　　　　　　<!-- 下载文件处理方式 --> 　　　　　　　　　　　　　　　　
+                <!-- 下载文件类型定义 -->
+                <param name="contentType">application/octet-stream</param>
+                <param name="contentDisposition">attachment;filename=${fileName}</param>
+                <!-- 下载文件的缓冲大小 -->
+                <param name="bufferSize">102400</param>
+            </result>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="downloadMultiFile" class="action.MultiFileDownloadAction" method="downloadMultiFile">
+            <result type="redirectAction">
+                <param name="actionName">downloadt</param>
+                <!--附件的完整路径  -->
+                <param name="fileName">${fileName}</param>
+            </result>
+        </action>
+
+        <!--国际化-->
+        <action name="locale" class="action.LocaleAction" method="execute">
+            <result name="success">index.jsp</result>
+        </action>
+
+        <action name="jsp*" class="action.LocaleAction">
+            <result>{1}.jsp</result>
+        </action>
+
+        <!--定位签到-->
+        <action name="location" class="action.SignAction" method="execute">
+            <result>index.jsp</result>
+        </action>
+
+        <!--group-->
+        <action name="registerGroup" class="action.GroupAction" method="registerGroup">
+            <result name="success">index.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+
+        <action name="queryGroupByUserInfo" class="action.GroupAction" method="getGroup">
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">getAllPage</result>
+            <result name="error">registerGroup.jsp</result>
+        </action>
+        <action name="loginAfter" class="action.GroupAction" method="getGroup">
+            <result>index.jsp</result>
+        </action>
+
+        <action name="updateNote" class="action.GroupAction" method="updateNote">
+            <result name="success" type="chain">queryGroupByUserInfo</result>
+            <result name="error" type="chain">queryGroupByUserInfo</result>
+        </action>
+
+        <action name="updateLoc" class="action.GroupAction" method="updateLoc">
+            <result name="success" type="chain">queryGroupByUserInfo</result>
+            <result name="error">groupSetting.jsp</result>
+        </action>
+
+        <action name="addGroup" class="action.GroupAction" method="addGroup">
+            <result name="success" type="chain">queryGroupByUserInfo</result>
+            <result name="error">index.jsp</result>
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="loginInterceptor"/>
+        </action>
+
+        <action name="getMenber" class="action.GroupAction" method="getMenber">
+            <result>groupInfo.jsp</result>
+        </action>
+        <!--page-->
+        <action name="subPage" class="action.PageAction" method="createPage">
+            <result name="success" type="chain">getAllPage</result>
+            <result name="error">createPage.jsp</result>
+        </action>
+
+        <action name="getAllPage" class="action.PageAction" method="getGroupPage">
+            <result name="success" type="chain">getMenber</result>
+        </action>
+
+        <action name="getOnePage" class="action.PageAction" method="getOnePage">
+            <result name="success">showPage.jsp</result>
+        </action>
+
+    </package>
+</struts>
