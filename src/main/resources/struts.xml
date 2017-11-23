@@ -13,9 +13,9 @@
         </interceptors>
 
         <global-results>
-            <result name="login" type="chain">loginAfter</result>
+            <result name="login" type="chain">login.jsp</result>
         </global-results>
-
+        <!--user-->
         <action name="userRegister" method="register" class="action.UserAction">
             <result name="input">register.jsp</result>
             <result name="error">register.jsp</result>
@@ -31,6 +31,14 @@
             <result name="success">index.jsp</result>
         </action>
 
+        <action name="updateUser" class="action.UserAction" method="updateUserInfo">
+            <result name="success">userInfo.jsp</result>
+        </action>
+
+        <action name="getPic" class="action.UserAction" method="getPicture">
+            <result name="success">index.jsp</result>
+            <result name="error">FaceId.jsp</result>
+        </action>
         <!--file upload-->
         <action name="uploadfiles" class="action.FileAction" method="uploadFile">
             <result name="input">uploadFile.jsp</result>

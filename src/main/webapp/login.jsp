@@ -68,12 +68,14 @@
                     <td>
                         <div>
                             <button type="submit" class="btn btn-success btn-block"><s:text name="login"/></button>
+
                         </div>
                     </td>
-
                 </tr>
             </table>
         </form>
+        <a type="button" class="btn btn-info" href="FaceId.jsp">脸部识别</a>
+
     </div>
 </div>
 <jsp:include page="common/copyright.jsp"/>

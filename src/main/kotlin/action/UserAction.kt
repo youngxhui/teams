@@ -7,6 +7,8 @@ import com.opensymphony.xwork2.ModelDriven
 import domain.User
 import service.UserService
 import service.serviceImp.UserServiceImp
+import sun.misc.BASE64Decoder
+import java.io.FileOutputStream
 
 
 /**
@@ -15,6 +17,7 @@ import service.serviceImp.UserServiceImp
 class UserAction : ActionSupport(), ModelDriven<User> {
 
     var user = User()
+    lateinit var pic: String
 
     lateinit var userService: UserService
 
@@ -46,7 +49,7 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     fun register(): String {
         userService = UserServiceImp()
         val flag = userService.register(user)
-        return if (flag == 1) {
+        return if (flag != 0) {
             Action.LOGIN
         } else {
             Action.ERROR
@@ -61,6 +64,24 @@ class UserAction : ActionSupport(), ModelDriven<User> {
 
     fun updateUserInfo(): String {
         userService = UserServiceImp()
+        return Action.SUCCESS
+    }
+
+    fun getPicture(): String {
+        println("a")
+        if (pic.isEmpty()) {
+            return Action.ERROR
+        }
+        val decoder = BASE64Decoder()
+        val b = decoder.decodeBuffer(pic)
+        (0 until b.size)
+                .filter { b[it] < 0 }
+                .forEach { b[it] = (b[it] + 256).toByte() }
+        val imgFilePath = "D:\\test\\test.png"
+        val out = FileOutputStream(imgFilePath)
+        out.write(b)
+        out.flush()
+        out.close()
         return Action.SUCCESS
     }
 }
