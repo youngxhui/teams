@@ -68,12 +68,7 @@ object BaiDuAuthUtil {
             while (line != null) {
                 result.append(line)
                 line = `in`.readLine()
-
             }
-            /**
-             * 返回结果示例
-             */
-            System.err.println("result:" + result)
             val jsonObject = JSONObject(result.toString())
             return jsonObject.getString("access_token")
         } catch (e: Exception) {
@@ -82,5 +77,4 @@ object BaiDuAuthUtil {
         }
         return null
     }
-
 }

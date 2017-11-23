@@ -7,8 +7,6 @@ import com.opensymphony.xwork2.ModelDriven
 import domain.User
 import service.UserService
 import service.serviceImp.UserServiceImp
-import sun.misc.BASE64Decoder
-import java.io.FileOutputStream
 
 
 /**
@@ -19,21 +17,11 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     var user = User()
     lateinit var pic: String
 
-    lateinit var userService: UserService
+    private var userService: UserService = UserServiceImp()
 
     override fun getModel(): User = user
-//
-//    fun registerValidate() {
-//        if (user.username.length in 5..9) {
-//
-//        } else {
-//
-//        }
-//    }
-
 
     fun login(): String {
-        userService = UserServiceImp()
         val bool = userService.login(user)
         var result: String = Action.ERROR
         val user = bool?.get(0)
@@ -47,7 +35,6 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     }
 
     fun register(): String {
-        userService = UserServiceImp()
         val flag = userService.register(user)
         return if (flag != 0) {
             Action.LOGIN
@@ -67,21 +54,17 @@ class UserAction : ActionSupport(), ModelDriven<User> {
         return Action.SUCCESS
     }
 
-    fun getPicture(): String {
-        println("a")
+    fun registerPicture(): String {
         if (pic.isEmpty()) {
             return Action.ERROR
         }
-        val decoder = BASE64Decoder()
-        val b = decoder.decodeBuffer(pic)
-        (0 until b.size)
-                .filter { b[it] < 0 }
-                .forEach { b[it] = (b[it] + 256).toByte() }
-        val imgFilePath = "D:\\test\\test.png"
-        val out = FileOutputStream(imgFilePath)
-        out.write(b)
-        out.flush()
-        out.close()
+        val userInfo: User = ActionContext.getContext().session["userInfo"] as User
+        val flag = userService.addFace(pic, userInfo)
+        if (flag == 0) {
+            ActionContext.getContext().put("faceError", "请让脸部位于摄像头中间")
+            return Action.ERROR
+        }
         return Action.SUCCESS
     }
+
 }
