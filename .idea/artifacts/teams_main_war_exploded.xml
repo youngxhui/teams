@@ -1,31 +1,23 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Gradle : com.young : teams-1.0-SNAPSHOT.war (exploded)">
-    <output-path>$PROJECT_DIR$/build/libs/exploded/teams-1.0-SNAPSHOT.war</output-path>
-    <properties id="gradle-properties">
-      <options external-project-path="$PROJECT_DIR$">
-        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
-      </options>
-    </properties>
+  <artifact type="exploded-war" name="teams_main:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/teams_main_war_exploded</output-path>
     <root id="root">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/teams-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="javaee-facet-resources" facet="teams_main/web/Web Gradle : teams-1.0-SNAPSHOT.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="teams_main" />
-          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.2.4" />
+          <element id="library" level="project" name="Gradle: org.json:json:20160810" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.60" />
           <element id="library" level="project" name="Gradle: org.apache.struts:struts2-core:2.3.34" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:4.2.4.Final" />
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.6" />
           <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Gradle: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Gradle: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Gradle: com.mchange:c3p0:0.9.5.2" />
           <element id="library" level="project" name="Gradle: org.apache.commons:commons-compress:1.15" />
+          <element id="library" level="project" name="Gradle: com.baidu.aip:java-sdk:3.3.2" />
           <element id="library" level="project" name="Gradle: junit:junit:4.12" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.60" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.60" />
@@ -54,6 +46,7 @@
           <element id="library" level="project" name="Gradle: asm:asm-tree:3.3" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="teams_main/web/Web Gradle : teams-1.1.war" />
     </root>
   </artifact>
 </component>

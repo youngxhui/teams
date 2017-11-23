@@ -15,22 +15,13 @@ import service.serviceImp.UserServiceImp
 class UserAction : ActionSupport(), ModelDriven<User> {
 
     var user = User()
+    lateinit var pic: String
 
-    lateinit var userService: UserService
+    private var userService: UserService = UserServiceImp()
 
     override fun getModel(): User = user
-//
-//    fun registerValidate() {
-//        if (user.username.length in 5..9) {
-//
-//        } else {
-//
-//        }
-//    }
-
 
     fun login(): String {
-        userService = UserServiceImp()
         val bool = userService.login(user)
         var result: String = Action.ERROR
         val user = bool?.get(0)
@@ -44,9 +35,8 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     }
 
     fun register(): String {
-        userService = UserServiceImp()
         val flag = userService.register(user)
-        return if (flag == 1) {
+        return if (flag != 0) {
             Action.LOGIN
         } else {
             Action.ERROR
@@ -63,4 +53,18 @@ class UserAction : ActionSupport(), ModelDriven<User> {
         userService = UserServiceImp()
         return Action.SUCCESS
     }
+
+    fun registerPicture(): String {
+        if (pic.isEmpty()) {
+            return Action.ERROR
+        }
+        val userInfo: User = ActionContext.getContext().session["userInfo"] as User
+        val flag = userService.addFace(pic, userInfo)
+        if (flag == 0) {
+            ActionContext.getContext().put("faceError", "请让脸部位于摄像头中间")
+            return Action.ERROR
+        }
+        return Action.SUCCESS
+    }
+
 }

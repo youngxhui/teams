@@ -8,4 +8,6 @@ import domain.User
 interface UserService {
     fun register(user: User): Int
     fun login(user: User): List<User>?
+    fun update(user: User): List<User>
+    fun addFace(facePic: String,user: User): Int
 }

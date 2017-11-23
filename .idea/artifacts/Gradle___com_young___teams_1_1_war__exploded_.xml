@@ -1,0 +1,62 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : com.young : teams-1.1.war (exploded)">
+    <output-path>$PROJECT_DIR$/build/libs/exploded/teams-1.1.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/teams-1.1.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="teams_main/web/Web Gradle : teams-1.1.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="teams_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.60" />
+          <element id="library" level="project" name="Gradle: org.apache.struts:struts2-core:2.3.34" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:4.2.4.Final" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.6" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Gradle: javax:javaee-api:7.0" />
+          <element id="library" level="project" name="Gradle: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Gradle: com.mchange:c3p0:0.9.5.2" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-compress:1.15" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.60" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.60" />
+          <element id="library" level="project" name="Gradle: org.apache.struts.xwork:xwork-core:2.3.34" />
+          <element id="library" level="project" name="Gradle: org.freemarker:freemarker:2.3.22" />
+          <element id="library" level="project" name="Gradle: ognl:ognl:3.0.21" />
+          <element id="library" level="project" name="Gradle: commons-fileupload:commons-fileupload:1.3.2" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.2" />
+          <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.1.0.GA" />
+          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final" />
+          <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
+          <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" />
+          <element id="library" level="project" name="Gradle: org.javassist:javassist:3.15.0-GA" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:javax.mail:1.5.0" />
+          <element id="library" level="project" name="Gradle: com.mchange:mchange-commons-java:0.2.11" />
+          <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.6" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.2" />
+          <element id="library" level="project" name="Gradle: asm:asm:3.3" />
+          <element id="library" level="project" name="Gradle: asm:asm-commons:3.3" />
+          <element id="library" level="project" name="Gradle: javassist:javassist:3.11.0.GA" />
+          <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Gradle: asm:asm-tree:3.3" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20160810/aca5eb39e2a12fddd6c472b240afe9ebea3a6733/json-20160810.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.baidu.aip/java-sdk/3.3.2/7c1d415d58eb7e7c326f7b0676400bee2341998f/java-sdk-3.3.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

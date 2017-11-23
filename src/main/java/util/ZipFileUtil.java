@@ -23,7 +23,7 @@ public class ZipFileUtil {
                     zaos.setUseZip64(Zip64Mode.AsNeeded);
 
                     //将每个文件用ZipArchiveEntry封装
-                    //再用ZipArchiveOutputStream写到压缩文件中
+
                     for (File file : files) {
                         if (file != null) {
                             ZipArchiveEntry zipArchiveEntry = new ZipArchiveEntry(file, file.getName());
