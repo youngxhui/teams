@@ -29,6 +29,11 @@
 
 1. 改用gradle构建
 
+2017年11月23日
+
+1. 接入百度大脑API，实现人脸识别
+
+
 # 截图
 
 ![主页](http://7xt81u.com1.z0.glb.clouddn.com/index.png)
