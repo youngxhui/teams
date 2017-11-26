@@ -7,15 +7,20 @@ import com.opensymphony.xwork2.ModelDriven
 import domain.User
 import service.UserService
 import service.serviceImp.UserServiceImp
+import java.io.File
 
 
 /**
  * Created by young on 2017/10/24.
  */
+
 class UserAction : ActionSupport(), ModelDriven<User> {
 
     var user = User()
     lateinit var pic: String
+
+    lateinit var headPic: File
+    lateinit var headPicFileName: String
 
     private var userService: UserService = UserServiceImp()
 
@@ -50,7 +55,12 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     }
 
     fun updateUserInfo(): String {
-        userService = UserServiceImp()
+        val userInSession: User = ActionContext.getContext().session.get("userInfo") as User
+        user.uid = userInSession.uid
+        val userNew = userService.update(user, headPic, headPicFileName)
+        ActionContext.getContext().session.clear()
+        println("")
+        ActionContext.getContext().session.put("userInfo", userNew)
         return Action.SUCCESS
     }
 
@@ -67,4 +77,10 @@ class UserAction : ActionSupport(), ModelDriven<User> {
         return Action.SUCCESS
     }
 
+    fun findUser(): String {
+        val userInfo = ActionContext.getContext().session["userInfo"] as User
+        val user = userService.getUser(userInfo.uid)
+        ActionContext.getContext().session.put("userInfo", user)
+        return Action.SUCCESS
+    }
 }

@@ -26,7 +26,7 @@
     </div>
     <div class="col-md-9">
         <h2>${sessionScope.userInfo.nickname}</h2>
-        <small><span class="glyphicon glyphicon-pencil"></span> <a href="">修改资料</a></small>
+        <small><span class="glyphicon glyphicon-pencil"></span> <a href="jspupdateInfo">修改资料</a></small>
     </div>
 </div>
 

@@ -27,7 +27,7 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
         return groupService.registerGroup(group)
     }
 
-    fun getGroup(): String {
+    fun getGroups(): String {
         val userInfo: User = ActionContext.getContext().session["userInfo"] as User
 
         val group = groupService.queryGroupByUserId(userInfo)
@@ -65,7 +65,6 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
 
     fun addGroup(): String {
         var adminId = group.adminId
-        println("admin id is $adminId")
         var userInfo: User = ActionContext.getContext().session["userInfo"] as User
         val flag = groupService.addPeople(adminId, userInfo)
         return if (flag) {
@@ -78,7 +77,7 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
     }
 
 
-    fun getMenber(): String {
+    fun getMember(): String {
         var group = ActionContext.getContext().session["group"] as Group
         var userList = groupService.getGroupMenber(group.adminId)
         ActionContext.getContext().session.put("menber", userList)

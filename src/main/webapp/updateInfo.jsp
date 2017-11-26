@@ -18,8 +18,21 @@
     <div class="jumbotron">
         <div>
 
-            <form action="userRegister.action" method="post" class="form-group">
+            <form action="updateUser" method="post" class="form-group" enctype="multipart/form-data">
                 <table class="table ">
+                    <tr class="form-group">
+                        <td>
+                            <small>账号信息</small>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon">头像</span>
+                                <input type="file" name="headPic">
+                            </div>
+                        </td>
+                    </tr>
 
                     <tr class="form-group">
                         <td>
@@ -31,7 +44,8 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="nicknameSpan">昵称</span>
                                 <input id="nickname" class="form-control" type="text" placeholder="长度为3~8字符"
-                                       aria-describedby="nicknameSpan" name="nickname" value="${sessionScope.userInfo.nickname}">
+                                       aria-describedby="nicknameSpan" name="nickname"
+                                       value="${sessionScope.userInfo.nickname}">
                             </div>
                         </td>
                     </tr>
@@ -49,7 +63,8 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="passwordSpan">密码</span>
                                 <input id="password" class="form-control" type="password" placeholder="长度为3~8字符"
-                                       aria-describedby="passwordSpan" name="password" value="${sessionScope.userInfo.password}">
+                                       aria-describedby="passwordSpan" name="password"
+                                       value="${sessionScope.userInfo.password}">
                             </div>
                         </td>
                     </tr>

@@ -5,9 +5,12 @@ import baiduApi.service.FaceService
 import dao.UserDao
 import dao.daoImp.UserDaoImp
 import domain.User
+import org.apache.struts2.ServletActionContext
 import service.UserService
 import util.DateUtil
 import util.GsonUtils
+import java.io.File
+import java.util.*
 
 /**
  * Created by young on 2017/10/27.
@@ -39,8 +42,21 @@ class UserServiceImp : UserService {
         return null
     }
 
-    override fun update(user: User): List<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(user: User, headPic: File, headFileName: String): User {
+        //  var userInBD = getUser(user.uid)
+        println("user is ${user.uid} and user nickname is ${user.nickname}")
+        val path = ServletActionContext.getServletContext().getRealPath("/head/")
+        val fileSuffix = headFileName.substringAfter('.')
+        val newFileName = UUID.randomUUID().toString() + "." + fileSuffix
+        val file = File(path + newFileName)
+        if (!file.exists()) {
+            file.mkdir()
+        }
+        headPic.copyTo(file, true)
+        user.headPicPath = newFileName
+        userDao.update(user)
+        return user
+
     }
 
     private fun faceDelect(facePic: String): Boolean {
@@ -78,5 +94,8 @@ class UserServiceImp : UserService {
             0
         }
     }
+
+    override fun getUser(uid: Int): User = userDao.findUserById(uid)
+
 
 }

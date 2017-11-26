@@ -31,11 +31,13 @@
 <%--导航栏--%>
 <jsp:include page="common/nav.jsp"/>
 
+
 <%--巨幕--%>
 <div class="container">
     <div class="jumbotron">
+
         <div>
-            <img src="pic/testpic.jpeg" width="180px" height="180px" class="img-responsive img-circle  center-block">
+            <img src="head/${sessionScope.userInfo.headPicPath}" width="180px" height="180px" class=" img-circle  center-block">
             <h1>${sessionScope.user.nickname}</h1>
             <h2>
                 <div id="Greeting"></div>

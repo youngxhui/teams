@@ -13,7 +13,7 @@
         </interceptors>
 
         <global-results>
-            <result name="login" type="chain">login.jsp</result>
+            <result name="login">login.jsp</result>
         </global-results>
         <!--user-->
         <action name="userRegister" method="register" class="action.UserAction">
@@ -35,13 +35,16 @@
             <result name="success">userInfo.jsp</result>
         </action>
 
-        <action name="getPic" class="action.UserAction" method="getPicture">
+        <action name="getPic" class="action.UserAction" method="registerPicture">
             <result name="success">index.jsp</result>
             <result name="error">FaceId.jsp</result>
         </action>
+
+        <action name="findOne" class="action.UserAction" method="findUser">
+            <result name="success">userInfo.jsp</result>
+        </action>
         <!--file upload-->
         <action name="uploadfiles" class="action.FileAction" method="uploadFile">
-            <result name="input">uploadFile.jsp</result>
             <result name="success" type="plainText">
                 <param name="location">json/return.json</param>
                 <param name="charSet">UTF-8</param>
@@ -74,7 +77,7 @@
 
         <action name="deletefile" method="deleteFile" class="action.FileAction">
             <result name="success" type="chain">getfiles</result>
-            <result name="error">getfiles</result>
+            <result name="error" type="chain">getfiles</result>
             <interceptor-ref name="loginInterceptor"/>
             <interceptor-ref name="defaultStack"/>
         </action>
@@ -121,15 +124,16 @@
             <result name="error">/index.jsp</result>
         </action>
 
-        <action name="queryGroupByUserInfo" class="action.GroupAction" method="getGroup">
+        <action name="queryGroupByUserInfo" class="action.GroupAction" method="getGourps">
             <interceptor-ref name="loginInterceptor"/>
             <interceptor-ref name="defaultStack"/>
             <result name="success" type="chain">getAllPage</result>
             <result name="error">registerGroup.jsp</result>
         </action>
-        <action name="loginAfter" class="action.GroupAction" method="getGroup">
-            <result>index.jsp</result>
-        </action>
+
+        <!--<action name="loginAfter" class="action.GroupAction" method="getGroup">-->
+        <!--<result>index.jsp</result>-->
+        <!--</action>-->
 
         <action name="updateNote" class="action.GroupAction" method="updateNote">
             <result name="success" type="chain">queryGroupByUserInfo</result>
@@ -148,7 +152,7 @@
             <interceptor-ref name="loginInterceptor"/>
         </action>
 
-        <action name="getMenber" class="action.GroupAction" method="getMenber">
+        <action name="getMenber" class="action.GroupAction" method="getMember">
             <result>groupInfo.jsp</result>
         </action>
         <!--page-->

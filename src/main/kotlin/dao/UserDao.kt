@@ -23,4 +23,18 @@ interface UserDao {
      * userList.size != 0 表示返回成功
      */
     fun select(user: User): MutableList<User>
+
+    /**
+     * 更新用户信息
+     * @param user user对象
+     * @return 返回一个已经更新的user信息
+     */
+    fun update(user: User): User
+
+    /**
+     * 通过id查询User
+     * @param uid 查询id
+     * @return User 返回一个用户
+     */
+    fun findUserById(uid: Int): User
 }

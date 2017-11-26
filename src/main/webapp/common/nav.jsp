@@ -57,10 +57,14 @@
                 </ul>
             </c:if>
 
+
+            ${userInfo.nickname}
+
             <c:if test="${userInfo!=null}">
                 <ul class="nav navbar-nav navbar-right center-block">
                     <li class="center-block ">
-                        <img class="img-circle" src="pic/testpic.jpeg" width="50px" height="50px">
+                        <img class="img-circle" src="head/${sessionScope.userInfo.headPicPath}" width="50px"
+                             height="50px">
                     </li>
                     <li></li>
                     <li class="dropdown center-block">
@@ -68,7 +72,7 @@
                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                            href="jspuserInfo"> ${userInfo.nickname}</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li><a href="jspuserInfo"><s:text name="userInfo"/></a></li>
+                            <li><a href="findOne.action"><s:text name="userInfo"/></a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="queryGroupByUserInfo"><s:text name="group"/></a></li>
                             <li><a href="jspsetting"><s:text name="setting"/></a></li>

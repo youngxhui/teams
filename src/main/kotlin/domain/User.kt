@@ -19,25 +19,25 @@ class User : Serializable {
     var uid: Int = 0
 
     lateinit var username: String
-    lateinit var nickname: String
+    var nickname: String = UUID.randomUUID().toString().substring(0, 8)
     var password: String = ""
         set(password) {
             field = Md5Util.getText(password)
         }
-
+    var headPicPath: String = "defaultPic.png"
     @Transient
     var rePassword: String = ""
         set(value) {
             field = Md5Util.getText(value)
         }
     var age: Int = 18
-    lateinit var sex: String
-    lateinit var birthday: Date
-    lateinit var province: String
-    lateinit var city: String
-    lateinit var area: String
+    var sex: String = "保密"
+    var birthday: Date = Date()
+    var province: String = "北京"
+    var city: String = "北京"
+    var area: String = "北京"
     lateinit var email: String
-    lateinit var tel: String
+    var tel: String = "保密"
 
     @OneToMany(targetEntity = SignInfo::class)
     lateinit var signInfoSet: Set<SignInfo>
@@ -47,7 +47,6 @@ class User : Serializable {
 
     @OneToMany(targetEntity = Group::class)
     lateinit var groupSet: Set<Group>
-
 
 
 }
