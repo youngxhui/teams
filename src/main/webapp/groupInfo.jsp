@@ -27,14 +27,13 @@
 <div id="content" class="row-fluid center-block">
 
     <div class="col-md-3">
-        <h3>小组成员&nbsp;<span class="badge">${fn:length(sessionScope.menber) }</span>&nbsp;&nbsp;
-            <span class="glyphicon glyphicon glyphicon-plus admin"
-                  aria-hidden="true"></span></h3>
+        <h3>小组成员&nbsp;<span class="badge">${fn:length(sessionScope.menber) }</span></h3>
 
         <table>
             <c:forEach var="user" items="${sessionScope.menber}">
                 <tr>
-                    <td><img class="img-circle" src="pic/testpic.jpeg" alt="" width="30" height="30"></td>
+                    <td><img class="img-circle" src="head/${user.headPicPath}" alt="" width="30" height="30"></td>
+                    &nbsp;
                     <td class="nickname" id="nickname">${user.nickname}</td>
                 </tr>
                 <tr>

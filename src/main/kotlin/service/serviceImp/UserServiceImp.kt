@@ -43,8 +43,6 @@ class UserServiceImp : UserService {
     }
 
     override fun update(user: User, headPic: File, headFileName: String): User {
-        //  var userInBD = getUser(user.uid)
-        println("user is ${user.uid} and user nickname is ${user.nickname}")
         val path = ServletActionContext.getServletContext().getRealPath("/head/")
         val fileSuffix = headFileName.substringAfter('.')
         val newFileName = UUID.randomUUID().toString() + "." + fileSuffix

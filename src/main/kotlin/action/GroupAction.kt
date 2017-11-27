@@ -52,7 +52,7 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
     }
 
     fun updateLoc(): String {
-        var userInfo: User = ActionContext.getContext().session["userInfo"] as User
+        val userInfo: User = ActionContext.getContext().session["userInfo"] as User
 
         val flag = groupService.updateLoc(group, userInfo)
         return if (flag) {
@@ -75,7 +75,6 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
             Action.ERROR
         }
     }
-
 
     fun getMember(): String {
         var group = ActionContext.getContext().session["group"] as Group

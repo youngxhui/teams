@@ -30,9 +30,9 @@ class Group {
     // 定位误差
     var locError: Int = 1
 
-    lateinit var note: String
+    var note: String = "组长很懒，什么都没写"
 
-    lateinit var summary: String
+    var summary: String = "组长很懒，什么都没写"
 
     @OneToMany(targetEntity = Page::class)
     lateinit var pageSet: Set<Page>

@@ -21,7 +21,7 @@
 
 <div class="col-md-12">
     <div class="col-md-3">
-        <img src="pic/testpic.jpeg" width="100px" height="100px" alt="没有头像"
+        <img src="head/${sessionScope.userInfo.headPicPath}" width="100px" height="100px" alt="没有头像"
              class="img-circle center-block">
     </div>
     <div class="col-md-9">

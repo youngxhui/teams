@@ -28,17 +28,7 @@
             <input type="text" class="form-control" name="groupName">
             介绍
             <textarea class="form-control" maxlength="140" placeholder="最多140字" name="summary"></textarea>
-            <%--添加成员--%>
-            <%--<div class="input-group">--%>
-                <%--<form action="" class="form-control">--%>
-                    <%--<input type="search" class="form-control" placeholder="用户邮箱">--%>
-                    <%--<span class="input-group-btn">--%>
-        <%--<button class="btn btn-default" type="button"><s:text name="search"/></button>--%>
-                <%--</span>--%>
-                <%--</form>--%>
-                <%--<div id="result"></div>--%>
-            <%--</div>--%>
-            <input type="submit" value="确认的">
+
             <button type="submit" class="btn btn-success btn-block">确认</button>
         </form>
 

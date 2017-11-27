@@ -52,19 +52,9 @@
                     <tr class="form-group">
                         <td>
                             <div class="input-group">
-                                <span class="input-group-addon" id="emailSpan">E-Mail</span>
-                                <input id="email" class="form-control" type="email"
-                                       aria-describedby="emailSpan" name="email" value="${sessionScope.userInfo.email}">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <td>
-                            <div class="input-group">
                                 <span class="input-group-addon" id="passwordSpan">密码</span>
                                 <input id="password" class="form-control" type="password" placeholder="长度为3~8字符"
-                                       aria-describedby="passwordSpan" name="password"
-                                       value="${sessionScope.userInfo.password}">
+                                       aria-describedby="passwordSpan" name="password">
                             </div>
                         </td>
                     </tr>
@@ -88,7 +78,8 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="usernameSpan">真实姓名</span>
                                 <input id="userName" class="form-control" type="text" placeholder="2-5个字符"
-                                       aria-describedby="usernameSpan" name="username">
+                                       aria-describedby="usernameSpan" name="username"
+                                       value="${sessionScope.userInfo.username}">
                             </div>
                         </td>
                     </tr>
@@ -109,7 +100,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="ageSpan">年龄</span>
                                 <input class="form-control" type="number" id="age" aria-describedby="ageSpan"
-                                       name="age">
+                                       name="age" value="${sessionScope.userInfo.age}">
                             </div>
                         </td>
                     </tr>
@@ -128,7 +119,8 @@
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="telSpan">电话</span>
-                                <input class="form-control" id="tel" type="tel" name="tel">
+                                <input class="form-control" id="tel" type="tel" name="tel"
+                                       value="${sessionScope.userInfo.tel}">
                             </div>
                         </td>
                     </tr>
@@ -170,6 +162,7 @@
                         </td>
                     </tr>
                 </table>
+                <input name="email" value="${sessionScope.userInfo.email}" hidden>
             </form>
         </div>
     </div>

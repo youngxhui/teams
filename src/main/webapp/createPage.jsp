@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-10">
         <div style="padding: 5px 0; color: #ccc">
-            标题 <input type="text" class="form-control" name="title" id="tit">
+            标题 <input type="text" class="form-control" name="title" id="tit" placeholder="请输入标题">
 
         </div>
         <div id="div1" class="toolbar">
@@ -44,6 +44,9 @@
         <form action="subPage" class="form-group" method="post">
             <input hidden name="title" id="title">
             <input type="text" id="textHtml" hidden name="htmlText">
+            <div>
+                <hr>
+            </div>
             <button id="submit" class="form-control btn btn-info">提交</button>
         </form>
         <script type="text/javascript" src="js/wangEditor.min.js"></script>
@@ -53,10 +56,10 @@
             editor.create();
             document.getElementById('submit').addEventListener('click', function () {
                 var input = document.getElementById('textHtml');
-                input.value = editor.txt.html()
+                input.value = editor.txt.html();
 
-                var tit = document.getElementById('tit')
-                var title = document.getElementById('title')
+                var tit = document.getElementById('tit');
+                var title = document.getElementById('title');
                 var t = tit.value;
                 title.value = t;
             }, false);

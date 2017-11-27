@@ -6,6 +6,8 @@
   Time: 10:55
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>主页</title>
@@ -37,7 +39,8 @@
     <div class="jumbotron">
 
         <div>
-            <img src="head/${sessionScope.userInfo.headPicPath}" width="180px" height="180px" class=" img-circle  center-block">
+            <img src="head/${sessionScope.userInfo.headPicPath}" width="180px" height="180px"
+                 class=" img-circle  center-block">
             <h1>${sessionScope.user.nickname}</h1>
             <h2>
                 <div id="Greeting"></div>
@@ -99,13 +102,15 @@
                     }, 1000);
                 };
             </script>
-            <p><s:text name="welcomeInfo"/> ${sessionScope.userInfo.nickname}</p>
-            <form id="lab" method="get" action="location">
-                <input id="longitude" type="text" name="longitude" hidden>
-                <input type="text" id="latitude" name="latitude" hidden>
-                <input type="text" name="uid" value="${sessionScope.userInfo.uid}" hidden>
-                <input id="btn" type="submit" value="签到" class="btn btn-primary btn-lg" onclick="getText()">
-            </form>
+            <c:if test="${userInfo!=null}">
+                <p><s:text name="welcomeInfo"/> ${sessionScope.userInfo.nickname}</p>
+                <form id="lab" method="get" action="location">
+                    <input id="longitude" type="text" name="longitude" hidden>
+                    <input type="text" id="latitude" name="latitude" hidden>
+                    <input type="text" name="uid" value="${sessionScope.userInfo.uid}" hidden>
+                    <input id="btn" type="submit" value="签到" class="btn btn-primary btn-lg" onclick="getText()">
+                </form>
+            </c:if>
         </div>
     </div>
 </div>

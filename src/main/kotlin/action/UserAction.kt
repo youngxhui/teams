@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.ActionContext
 import com.opensymphony.xwork2.ActionSupport
 import com.opensymphony.xwork2.ModelDriven
 import domain.User
+import org.apache.struts2.ServletActionContext
 import service.UserService
 import service.serviceImp.UserServiceImp
 import java.io.File
@@ -19,12 +20,24 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     var user = User()
     lateinit var pic: String
 
-    lateinit var headPic: File
-    lateinit var headPicFileName: String
+    var headPic: File = File(ServletActionContext.getServletContext().getRealPath("/head/defaultPic.png"))
+    var headPicFileName: String = "defaultPic.png"
 
     private var userService: UserService = UserServiceImp()
 
     override fun getModel(): User = user
+
+//    override fun validate() {
+//        val message = Validator.getMessage(user)
+//        if (message.size != 0) {
+//            message.map {
+//                println("jiaoyang")
+//                fieldErrors.put("usererror", message)
+//            }
+//
+//        }
+//        println("jiaoyang")
+//    }
 
     fun login(): String {
         val bool = userService.login(user)
@@ -55,7 +68,7 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     }
 
     fun updateUserInfo(): String {
-        val userInSession: User = ActionContext.getContext().session.get("userInfo") as User
+        val userInSession: User = ActionContext.getContext().session["userInfo"] as User
         user.uid = userInSession.uid
         val userNew = userService.update(user, headPic, headPicFileName)
         ActionContext.getContext().session.clear()

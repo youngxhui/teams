@@ -20,6 +20,7 @@ class PageDaoImp : PageDao {
     }
 
     override fun getAllPageByGroupInfo(group: Group): MutableList<Page> {
+        println("dao group id is ${group.gid}")
         val session = SessionFactory.getSession()
         val transaction = session.beginTransaction()
         @Language("HQL")
