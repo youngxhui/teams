@@ -3,13 +3,27 @@
 
 # 所用技术
 
+- 语言 kotlin java
 
+- 前端UI BootStrap
 
-- 前端采用 Bootstrap jquery
+- 富文本编辑器 wangEditor
     
-- 后台使用 Struts2 Hibernate
+- web 层 Struts2
 
-- 语言 kotlin
+- 持久层 Hibernate
+
+- 后台校验框架 Hibernate validator
+
+- json解析 Gson
+
+- 数据库 mysql
+
+# 第三方接口
+
+高德api [定位](http://lbs.amap.com/api/javascript-api/reference/location)
+
+百度大脑 [人脸识别](http://ai.baidu.com/docs#/Face-Java-SDK/top)
 
 # 功能
 
@@ -21,7 +35,8 @@
 - [x] 国际化
 - [ ] 站内信
 - [ ] 人员查询
-
+- [ ] 人脸登录
+- [ ] 人脸签到
 
 # 更新日志
 
@@ -48,5 +63,5 @@
 
 # License
 
-[GPL-3.0](https://github.com/youngxhui/work/blob/master/LICENSE)
+[GPL-3.0](https://github.com/youngxhui/teams/blob/master/LICENSE)
 
