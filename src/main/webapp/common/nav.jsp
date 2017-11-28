@@ -9,11 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <%--<script src="jquery/jquery-3.2.1.min.js"></script>--%>
     <script src="dist/js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-    <%--<script src="jquery/jquery-3.2.1.min.js"></script>--%>
     <script src="js/fileinput.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>

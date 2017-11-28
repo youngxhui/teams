@@ -71,10 +71,16 @@
         <form action="updateNote" class="form-group">
             <textarea class="form-control" maxlength="140" placeholder="最多140字" id="note" name="note"></textarea>
             <hr>
-            <button class="btn btn-success form-group admin" id="update">更新</button>
+            <tr>
+                <td>
+                    <button class="btn btn-success form-group admin" id="update">更新</button>
+                </td>
+                <td><a class="btn btn-info admin" href="jspgroupSetting">设置</a></td>
+            </tr>
+
         </form>
 
-        <a class="btn btn-info admin" href="jspgroupSetting">设置</a>
+
     </div>
 </div>
 

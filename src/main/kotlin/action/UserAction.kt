@@ -27,17 +27,6 @@ class UserAction : ActionSupport(), ModelDriven<User> {
 
     override fun getModel(): User = user
 
-//    override fun validate() {
-//        val message = Validator.getMessage(user)
-//        if (message.size != 0) {
-//            message.map {
-//                println("jiaoyang")
-//                fieldErrors.put("usererror", message)
-//            }
-//
-//        }
-//        println("jiaoyang")
-//    }
 
     fun login(): String {
         val bool = userService.login(user)
@@ -95,5 +84,21 @@ class UserAction : ActionSupport(), ModelDriven<User> {
         val user = userService.getUser(userInfo.uid)
         ActionContext.getContext().session.put("userInfo", user)
         return Action.SUCCESS
+    }
+
+    fun faceLogin(): String {
+        println("face login")
+        if (pic.isEmpty()) {
+            return Action.ERROR
+            println("face login error")
+        }
+
+        val user = userService.faceLogin(pic)
+        println("face login success")
+        if (user.faceId != false) {
+            ActionContext.getContext().session.put("userInfo", user)
+            return Action.SUCCESS
+        }
+        return Action.ERROR
     }
 }

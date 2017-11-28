@@ -17,43 +17,6 @@
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 
-    <script src="js/login.js"></script>
-    <script>
-        $.validator.setDefaults({
-            submitHandler: function () {
-                alert("提交事件!");
-            }
-        });
-        $().ready(function () {
-// 在键盘按下并释放及提交后验证提交表单
-            $("#login").validate({
-                rules: {
-
-                    username: {
-                        required: true,
-                        minlength: 2
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    },
-
-                },
-                messages: {
-
-                    username: {
-                        required: "请输入用户名",
-                        minlength: "用户名必需由两个字母组成"
-                    },
-                    password: {
-                        required: "请输入密码",
-                        minlength: "密码长度不能小于 5 个字母"
-                    }
-                }
-            })
-        });
-    </script>
-
     <style>
         .form-center {
             width: 70%;
@@ -104,7 +67,7 @@
                 <tr class="form-group">
                     <td class="text-center">
                         <div>
-                            <s:fielderror/>
+                            <s:fielderror value="usererror"/>
                             ${requestScope.usererror} <s:actionerror/>
                         </div>
                     </td>
@@ -119,7 +82,7 @@
                 </tr>
             </table>
         </form>
-        <a type="button" class="btn btn-info" href="FaceId.jsp">脸部识别</a>
+        <a type="button" class="btn btn-info" href="facelogin.jsp">脸部识别</a>
     </div>
 </div>
 

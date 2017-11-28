@@ -24,9 +24,9 @@ class PageDaoImp : PageDao {
         val session = SessionFactory.getSession()
         val transaction = session.beginTransaction()
         @Language("HQL")
-        val hql = "from Page where group.gid = ?"
+        val hql = "from Page where group.adminId = ?"
         val query = session.createQuery(hql)
-        query.setInteger(0, group.gid)
+        query.setString(0, group.adminId)
         val list = query.list()
         transaction.commit()
         session.close()

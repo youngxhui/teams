@@ -81,7 +81,6 @@
                     var show = document.getElementById("show");
                     setInterval(function () {
                         var time = new Date();
-                        // 程序计时的月从0开始取值后+1
                         var m = time.getMonth() + 1;
                         var hours = time.getHours();
                         if (hours < 10) {
@@ -104,7 +103,7 @@
             </script>
             <c:if test="${userInfo!=null}">
                 <p><s:text name="welcomeInfo"/> ${sessionScope.userInfo.nickname}</p>
-                <form id="lab" method="get" action="location">
+                <form id="lab" method="post" action="location">
                     <input id="longitude" type="text" name="longitude" hidden>
                     <input type="text" id="latitude" name="latitude" hidden>
                     <input type="text" name="uid" value="${sessionScope.userInfo.uid}" hidden>

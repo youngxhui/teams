@@ -35,7 +35,8 @@ class FaceService {
      * @param email 电子邮箱
      * @param groupId 小组id 默认为0
      */
-    fun add(imgStr: String, uid: String, email: String, groupId: String = "   "): String {
+    fun add(imgStr: String, uid: String, email: String): String {
+        val groupId = "test_group"
         val url = "https://aip.baidubce.com/rest/2.0/face/v2/faceset/user/add"
         try {
             val imgParam = URLEncoder.encode(imgStr, "UTF-8")
@@ -48,6 +49,26 @@ class FaceService {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        return ""
+    }
+
+    fun identify(imgStr: String): String {
+        // 请求url
+        val url = "https://aip.baidubce.com/rest/2.0/face/v2/identify"
+        try {
+            val imgParam = URLEncoder.encode(imgStr, "UTF-8")
+            val param = "group_id=test_group&user_top_num=1&face_top_num=1&images=$imgParam"
+
+            // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
+            val accessToken = BaiDuAuthUtil.auth
+
+            val result = HttpUtil.post(url, accessToken, param)
+            println(result)
+            return result
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         return ""
     }
 }

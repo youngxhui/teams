@@ -29,13 +29,11 @@ class GroupAction : ActionSupport(), ModelDriven<Group> {
 
     fun getGroups(): String {
         val userInfo: User = ActionContext.getContext().session["userInfo"] as User
-
         val group = groupService.queryGroupByUserId(userInfo)
         return if (group != null) {
             ActionContext.getContext().session.put("group", group)
             Action.SUCCESS
         } else {
-            println("asdasdas")
             Action.ERROR
         }
     }

@@ -26,7 +26,6 @@
         </ul>
     </div>
     <div class="col-md-6">
-
         <s:text name="select_language"/>
         <table class="table table-bordered">
             <tr>
@@ -37,6 +36,10 @@
                         name="english"/></a></td>
             </tr>
         </table>
+
+        面部识别
+        <tr><a href="FaceId.jsp">添加面部数据</a></tr>
+
     </div>
     <div class="col-md-3">
     </div>

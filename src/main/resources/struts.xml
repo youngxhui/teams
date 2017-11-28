@@ -43,6 +43,11 @@
         <action name="findOne" class="action.UserAction" method="findUser">
             <result name="success">userInfo.jsp</result>
         </action>
+
+        <action name="faceLogin" class="action.UserAction" method="faceLogin">
+            <result name="success">userInfo.jsp</result>
+        </action>
+
         <!--file upload-->
         <action name="uploadfiles" class="action.FileAction" method="uploadFile">
             <result name="success" type="plainText">

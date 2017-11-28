@@ -1,6 +1,7 @@
 package service.serviceImp
 
 import baiduApi.bean.FaceDeteceResult
+import baiduApi.bean.IdentifyResult
 import baiduApi.service.FaceService
 import dao.UserDao
 import dao.daoImp.UserDaoImp
@@ -68,7 +69,6 @@ class UserServiceImp : UserService {
 
         // 人脸可信度至少大于0.9
         if (faceDeteceResult.result[0].faceProbability >= 0.9) {
-            println("这TMD是人脸没错")
             return true
         }
         return false
@@ -86,7 +86,9 @@ class UserServiceImp : UserService {
         return if (faceDelect) {
             // 注册人脸
             val result = faceService.add(facePic, user.uid.toString(), user.email)
-            println(result)
+            GsonUtils.fromJson(result, FaceDeteceResult::class.java)
+            user.faceId = true
+            userDao.update(user)
             1
         } else {
             0
@@ -95,5 +97,15 @@ class UserServiceImp : UserService {
 
     override fun getUser(uid: Int): User = userDao.findUserById(uid)
 
+    override fun faceLogin(facePic: String): User {
+        val result = faceService.identify(facePic)
+
+        println(result)
+        val identifyResult = GsonUtils.fromJson(result, IdentifyResult::class.java)
+        var uid: Int = identifyResult.uid.toInt()
+        val user = userDao.findUserById(uid)
+        return user
+
+    }
 
 }
