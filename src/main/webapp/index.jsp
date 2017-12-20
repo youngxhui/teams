@@ -37,7 +37,6 @@
 <%--巨幕--%>
 <div class="container">
     <div class="jumbotron">
-
         <div>
             <img src="head/${sessionScope.userInfo.headPicPath}" width="180px" height="180px"
                  class=" img-circle  center-block">

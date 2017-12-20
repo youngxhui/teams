@@ -19,6 +19,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.2.4" />
           <element id="library" level="project" name="Gradle: org.json:json:20160810" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.0" />
           <element id="library" level="project" name="Gradle: org.apache.struts:struts2-core:2.3.34" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:4.2.4.Final" />
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.6" />
@@ -31,6 +32,8 @@
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:4.2.0.Final" />
           <element id="library" level="project" name="Gradle: javax.el:javax.el-api:3.0.0" />
           <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.0" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0" />
           <element id="library" level="project" name="Gradle: org.apache.struts.xwork:xwork-core:2.3.34" />
           <element id="library" level="project" name="Gradle: org.freemarker:freemarker:2.3.22" />
           <element id="library" level="project" name="Gradle: ognl:ognl:3.0.21" />
@@ -56,9 +59,6 @@
           <element id="library" level="project" name="Gradle: javassist:javassist:3.11.0.GA" />
           <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Gradle: asm:asm-tree:3.3" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.1.61/7cb0d1b54614623a4b297af1eea7bc3aa0e9e63/kotlin-stdlib-jre8-1.1.61.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.61/fa7813a26c548c9c412dd2d42fb466cfcd8dcf3c/kotlin-stdlib-1.1.61.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.61/59dfce93b1995717338435dd974884007d8e8474/kotlin-stdlib-jre7-1.1.61.jar" />
         </element>
       </element>
     </root>
